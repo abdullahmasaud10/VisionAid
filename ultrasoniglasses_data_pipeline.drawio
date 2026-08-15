@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="page3" name="Data Pipeline Model">
+    <mxGraphModel dx="1548" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=#56517e;fillColor=#d0cee2;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="ULTRASONIGLASSES DATA PIPELINE MODEL" vertex="1">
+          <mxGeometry height="40" width="500" x="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="in_camera" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#475569;strokeWidth=2;fontSize=12;fontColor=#1e293b;fontStyle=1;" value="CAMERA FEED&#xa;(Raw Images)" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="in_sensor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#475569;strokeWidth=2;fontSize=12;fontColor=#1e293b;fontStyle=1;" value="ULTRASONIC ECHO&#xa;(Time in Microseconds)" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="pr_yolo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="YOLOv8n AI Engine&#xa;(Object Label Finder)" vertex="1">
+          <mxGeometry height="60" width="160" x="260" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pr_coord" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Coordinate Mapper&#xa;(Calculates Direction)" vertex="1">
+          <mxGeometry height="60" width="160" x="260" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="pr_dist" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Distance Calculator&#xa;(Calculates Meters)" vertex="1">
+          <mxGeometry height="60" width="160" x="260" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="hub_decision" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;strokeWidth=2.5;fontSize=12;fontColor=#78350f;fontStyle=1;" value="Decision Engine&#xa;(Combines Label, Direction,&#xa;and Distance)" vertex="1">
+          <mxGeometry height="80" width="160" x="480" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="out_audio" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#10b981;strokeWidth=2;fontSize=12;fontColor=#064e3b;fontStyle=1;" value="VOICE ALERTS&#xa;(Earbuds/Headphones)" vertex="1">
+          <mxGeometry height="60" width="140" x="790" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="out_dash" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fdf4;strokeColor=#10b981;strokeWidth=2;fontSize=12;fontColor=#064e3b;fontStyle=1;" value="WEB DASHBOARD&#xa;(Visual Monitor)" vertex="1">
+          <mxGeometry height="60" width="140" x="680" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cam_yolo" edge="1" parent="1" source="in_camera" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;" target="pr_yolo" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_yolo_coord" edge="1" parent="1" source="pr_yolo" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;" target="pr_coord" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_coord_hub" edge="1" parent="1" source="pr_coord" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" target="hub_decision" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sens_dist" edge="1" parent="1" source="in_sensor" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;" target="pr_dist" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dist_hub" edge="1" parent="1" source="pr_dist" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" target="hub_decision" value="Distance&#xa;(in Meters)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_yolo_dash" edge="1" parent="1" source="pr_yolo" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;exitX=0.5;exitY=0;entryX=0.5;entryY=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="out_dash" value="Annotated Stream">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_hub_voice" edge="1" parent="1" source="hub_decision" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" target="out_audio" value="Spoken Instruction">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_hub_dash" edge="1" parent="1" source="hub_decision" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=10;fontColor=#1e293b;fontStyle=1;exitX=1;exitY=0.7;entryX=0;entryY=0.5;" target="out_dash" value="Alert Log">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

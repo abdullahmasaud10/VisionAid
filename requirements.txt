@@ -1,0 +1,4 @@
+flask>=3.0.0
+numpy>=1.26.0
+pyttsx3>=2.90
+RPi.GPIO>=0.7.1

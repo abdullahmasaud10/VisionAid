@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="page2" name="System Flowchart">
+    <mxGraphModel dx="1548" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=#314354;fillColor=#647687;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#ffffff;" value="ULTRASONIGLASSES SIMPLIFIED FLOWCHART" vertex="1">
+          <mxGeometry height="40" width="450" x="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#475569;strokeWidth=2;fontSize=12;fontColor=#1e293b;fontStyle=1;" value="START" vertex="1">
+          <mxGeometry height="50" width="120" x="350" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="init" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Initialize Camera &amp;&#xa;Ultrasonic Sensor" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="read" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Capture Camera Frame &amp;&#xa;Read Sensor Distance" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="yolo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Run YOLOv8n Model&#xa;(Detect Objects)" vertex="1">
+          <mxGeometry height="60" width="180" x="320" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_obstacle" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;strokeWidth=2;fontSize=12;fontColor=#78350f;fontStyle=1;" value="Obstacle&#xa;Detected?" vertex="1">
+          <mxGeometry height="100" width="150" x="335" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="calc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Calculate Direction&#xa;(Left / Right / Ahead)" vertex="1">
+          <mxGeometry height="60" width="170" x="550" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="play" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#3b82f6;strokeWidth=2;fontSize=12;fontColor=#1e40af;fontStyle=1;" value="Play Voice Alert&#xa;(via Headphones)" vertex="1">
+          <mxGeometry height="60" width="170" x="550" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="dec_stop" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fffbeb;strokeColor=#d97706;strokeWidth=2;fontSize=12;fontColor=#78350f;fontStyle=1;" value="Stop&#xa;Program?" vertex="1">
+          <mxGeometry height="100" width="150" x="335" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#475569;strokeWidth=2;fontSize=12;fontColor=#1e293b;fontStyle=1;" value="END" vertex="1">
+          <mxGeometry height="50" width="120" x="350" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="init" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_init" edge="1" parent="1" source="init" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="read" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_read" edge="1" parent="1" source="read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="yolo" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_yolo" edge="1" parent="1" source="yolo" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="dec_obstacle" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dec1_yes" edge="1" parent="1" source="dec_obstacle" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="calc" value="YES">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_calc_play" edge="1" parent="1" source="calc" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="play" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_play_loop" edge="1" parent="1" source="play" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="read" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dec1_no" edge="1" parent="1" source="dec_obstacle" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="dec_stop" value="NO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dec2_yes" edge="1" parent="1" source="dec_stop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;" target="end" value="YES">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dec2_no" edge="1" parent="1" source="dec_stop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#475569;fontSize=11;fontColor=#1e293b;fontStyle=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="read" value="NO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

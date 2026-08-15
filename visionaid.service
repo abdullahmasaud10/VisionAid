@@ -1,0 +1,17 @@
+[Unit]
+Description=VisionAid Blind Assistance System
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/AI_FYP
+ExecStart=/home/pi/AI_FYP/venv/bin/python3 /home/pi/AI_FYP/app.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
